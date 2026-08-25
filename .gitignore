@@ -1,0 +1,5 @@
+# Raw transcripts are local working data; curated resources live in data/catalog.json.
+transcripts/
+
+# Node
+node_modules/

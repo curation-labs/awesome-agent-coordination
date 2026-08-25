@@ -1,0 +1,833 @@
+[
+  {
+    "id": "paper:contract-net",
+    "type": "paper",
+    "title": "The Contract Net Protocol: High-Level Communication and Control in a Distributed Problem Solver",
+    "url": "https://doi.org/10.1109/TC.1980.1675516",
+    "authors": ["Reid G. Smith"],
+    "organizations": [],
+    "publishedAt": "1980-12-01",
+    "summary": "Introduces announcement, bidding, award, and execution messages for decentralized task allocation among problem-solving nodes.",
+    "whyNotable": "Established a durable market-like delegation primitive that still clarifies manager-contractor and capability-based routing designs.",
+    "primaryTheme": "foundations",
+    "themes": ["foundations", "allocation", "communication"],
+    "techniques": ["contract-net", "capability-delegation", "negotiation"],
+    "evidence": {
+      "status": "peer-reviewed",
+      "maturity": "conceptual",
+      "limitations": "Predates language-model agents and assumes structured tasks, messages, and locally meaningful bids."
+    },
+    "artifacts": [],
+    "lifecycle": { "status": "historical" },
+    "curation": {
+      "tier": "essential",
+      "addedAt": "2026-08-25",
+      "lastReviewedAt": "2026-08-25"
+    }
+  },
+  {
+    "id": "paper:blackboard-architecture",
+    "type": "paper",
+    "title": "A Blackboard Architecture for Control",
+    "url": "https://doi.org/10.1016/0004-3702(85)90063-3",
+    "authors": ["Barbara Hayes-Roth"],
+    "organizations": [],
+    "publishedAt": "1985-07-01",
+    "summary": "Describes opportunistic coordination through a shared blackboard whose evolving state activates specialized knowledge sources.",
+    "whyNotable": "Provides the conceptual ancestor of shared-artifact and event-driven agent systems where coordination happens through durable state rather than chat alone.",
+    "primaryTheme": "foundations",
+    "themes": ["foundations", "architectures", "state"],
+    "techniques": ["blackboard", "shared-artifacts", "shared-memory"],
+    "evidence": {
+      "status": "peer-reviewed",
+      "maturity": "conceptual",
+      "limitations": "The architecture does not by itself solve distributed consistency, access control, or language-model reliability."
+    },
+    "artifacts": [],
+    "lifecycle": { "status": "historical" },
+    "curation": {
+      "tier": "essential",
+      "addedAt": "2026-08-25",
+      "lastReviewedAt": "2026-08-25"
+    }
+  },
+  {
+    "id": "paper:sharedplans",
+    "type": "paper",
+    "title": "Collaborative Plans for Complex Group Action",
+    "url": "https://doi.org/10.1016/0004-3702(95)00103-4",
+    "authors": ["Barbara J. Grosz", "Sarit Kraus"],
+    "organizations": [],
+    "publishedAt": "1996-10-01",
+    "summary": "Formalizes partial shared plans, intentions, commitments, and communication requirements for collaborative group action.",
+    "whyNotable": "Separates merely assigning subtasks from maintaining the mutual commitments and beliefs required for genuine teamwork.",
+    "primaryTheme": "foundations",
+    "themes": ["foundations", "allocation", "communication"],
+    "techniques": ["joint-intentions", "task-decomposition", "human-in-the-loop"],
+    "evidence": {
+      "status": "peer-reviewed",
+      "maturity": "conceptual",
+      "limitations": "Its formal intentional model is difficult to instantiate faithfully in probabilistic language-model agents."
+    },
+    "artifacts": [],
+    "lifecycle": { "status": "historical" },
+    "curation": {
+      "tier": "essential",
+      "addedAt": "2026-08-25",
+      "lastReviewedAt": "2026-08-25"
+    }
+  },
+  {
+    "id": "paper:dec-pomdp-complexity",
+    "type": "paper",
+    "title": "The Complexity of Decentralized Control of Markov Decision Processes",
+    "url": "https://doi.org/10.1287/moor.27.4.819.297",
+    "authors": ["Daniel S. Bernstein", "Robert Givan", "Neil Immerman", "Shlomo Zilberstein"],
+    "organizations": [],
+    "publishedAt": "2002-11-01",
+    "summary": "Formalizes decentralized partially observable decision processes and proves severe worst-case complexity for joint policy computation.",
+    "whyNotable": "Explains why decentralized coordination under partial information is structurally harder than solving independent single-agent problems.",
+    "primaryTheme": "foundations",
+    "themes": ["foundations", "architectures", "evaluation"],
+    "techniques": ["dec-pomdp", "peer-to-peer", "coordination-benchmarking"],
+    "evidence": {
+      "status": "peer-reviewed",
+      "maturity": "conceptual",
+      "limitations": "The formal state and observation models do not capture the open-ended semantics of modern language-agent environments."
+    },
+    "artifacts": [],
+    "lifecycle": { "status": "historical" },
+    "curation": {
+      "tier": "essential",
+      "addedAt": "2026-08-25",
+      "lastReviewedAt": "2026-08-25"
+    }
+  },
+  {
+    "id": "spec:fipa-acl",
+    "type": "specification",
+    "title": "FIPA Agent Communication Language Specifications",
+    "url": "https://www.fipa.org/repository/aclspecs.html",
+    "authors": [],
+    "organizations": ["Foundation for Intelligent Physical Agents"],
+    "publishedAt": "2002-12-01",
+    "summary": "Standardizes communicative acts, message structure, conversation identifiers, content languages, and interaction protocols for heterogeneous agents.",
+    "whyNotable": "Supplies the historical standards baseline for performatives, directories, Contract Net, auctions, and semantically explicit agent messages.",
+    "primaryTheme": "communication",
+    "themes": ["foundations", "communication", "allocation"],
+    "techniques": ["interoperability", "contract-net", "negotiation"],
+    "evidence": {
+      "status": "historical-standard",
+      "maturity": "implemented",
+      "limitations": "Formal mental-state semantics proved difficult to verify and the specifications predate current web-native agent protocols."
+    },
+    "artifacts": [
+      { "kind": "specification", "url": "https://www.fipa.org/repository/aclspecs.html" }
+    ],
+    "lifecycle": { "status": "historical" },
+    "curation": {
+      "tier": "essential",
+      "addedAt": "2026-08-25",
+      "lastReviewedAt": "2026-08-25"
+    }
+  },
+  {
+    "id": "paper:learning-to-communicate",
+    "type": "paper",
+    "title": "Learning to Communicate with Deep Multi-Agent Reinforcement Learning",
+    "url": "https://papers.neurips.cc/paper/6042-learning-to-communicate-with-deep-multi-agent-reinforcement-learning",
+    "authors": ["Jakob N. Foerster", "Yannis M. Assael", "Nando de Freitas", "Shimon Whiteson"],
+    "organizations": [],
+    "publishedAt": "2016-12-01",
+    "summary": "Introduces RIAL and DIAL, allowing agents to learn communication protocols under centralized learning and decentralized execution.",
+    "whyNotable": "Made the communication channel itself learnable and established a major bridge between multi-agent reinforcement learning and coordination design.",
+    "primaryTheme": "foundations",
+    "themes": ["foundations", "communication", "architectures"],
+    "techniques": ["learned-communication", "centralized-training-decentralized-execution"],
+    "evidence": {
+      "status": "peer-reviewed",
+      "maturity": "evaluated",
+      "limitations": "Experiments use small synthetic environments and learned signals that do not directly transfer to open natural-language protocols."
+    },
+    "artifacts": [],
+    "lifecycle": { "status": "historical" },
+    "curation": {
+      "tier": "strong",
+      "addedAt": "2026-08-25",
+      "lastReviewedAt": "2026-08-25"
+    }
+  },
+  {
+    "id": "paper:qmix",
+    "type": "paper",
+    "title": "QMIX: Monotonic Value Function Factorisation for Deep Multi-Agent Reinforcement Learning",
+    "url": "https://proceedings.mlr.press/v80/rashid18a.html",
+    "authors": ["Tabish Rashid", "Mikayel Samvelyan", "Christian Schroeder de Witt", "Gregory Farquhar", "Jakob Foerster", "Shimon Whiteson"],
+    "organizations": [],
+    "publishedAt": "2018-07-01",
+    "summary": "Factorizes a centralized action-value function into monotonic per-agent values that support decentralized action selection.",
+    "whyNotable": "Provides a canonical example of training with global coordination information while preserving decentralized execution at run time.",
+    "primaryTheme": "foundations",
+    "themes": ["foundations", "architectures", "evaluation"],
+    "techniques": ["centralized-training-decentralized-execution", "hierarchical-control"],
+    "evidence": {
+      "status": "peer-reviewed",
+      "maturity": "evaluated",
+      "limitations": "Monotonic value factorization restricts the class of joint value functions and targets cooperative reinforcement-learning tasks rather than language agents."
+    },
+    "artifacts": [
+      { "kind": "code", "url": "https://github.com/oxwhirl/pymarl" }
+    ],
+    "lifecycle": { "status": "historical" },
+    "curation": {
+      "tier": "strong",
+      "addedAt": "2026-08-25",
+      "lastReviewedAt": "2026-08-25"
+    }
+  },
+  {
+    "id": "paper:camel",
+    "type": "paper",
+    "title": "CAMEL: Communicative Agents for Mind Exploration of Large Scale Language Model Society",
+    "url": "https://proceedings.neurips.cc/paper_files/paper/2023/hash/a3621ee907def47c1b952ade25c67698-Abstract-Conference.html",
+    "authors": ["Guohao Li", "Hasan Abed Al Kader Hammoud", "Hani Itani", "Dmitrii Khizbullin", "Bernard Ghanem"],
+    "organizations": [],
+    "publishedAt": "2023-03-31",
+    "summary": "Uses role-playing and inception prompting to sustain cooperative interaction between language-model agents with assigned roles.",
+    "whyNotable": "Became an influential early template for role-conditioned LLM societies and for studying conversational cooperation at scale.",
+    "primaryTheme": "architectures",
+    "themes": ["architectures", "communication", "allocation"],
+    "techniques": ["role-specialization", "peer-to-peer", "capability-delegation"],
+    "evidence": {
+      "status": "peer-reviewed",
+      "maturity": "evaluated",
+      "limitations": "Role-play quality and synthetic task completion do not establish reliability on consequential long-horizon work."
+    },
+    "artifacts": [
+      { "kind": "code", "url": "https://github.com/camel-ai/camel" }
+    ],
+    "lifecycle": { "status": "active" },
+    "curation": {
+      "tier": "strong",
+      "addedAt": "2026-08-25",
+      "lastReviewedAt": "2026-08-25"
+    }
+  },
+  {
+    "id": "paper:autogen",
+    "type": "paper",
+    "title": "AutoGen: Enabling Next-Gen LLM Applications via Multi-Agent Conversation",
+    "url": "https://arxiv.org/abs/2308.08155",
+    "authors": ["Qingyun Wu", "Gagan Bansal", "Jieyu Zhang", "Yiran Wu", "Beibin Li", "Erkang Zhu", "Li Jiang", "Xiaoyun Zhang", "Shaokun Zhang", "Jiale Liu", "Ahmed Hassan Awadallah", "Ryen W. White", "Doug Burger", "Chi Wang"],
+    "organizations": ["Microsoft Research"],
+    "publishedAt": "2023-08-16",
+    "updatedAt": "2024-08-01",
+    "summary": "Defines customizable conversable agents that combine models, tools, code, and humans through programmable multi-agent conversation patterns.",
+    "whyNotable": "Made multi-agent conversation a general software abstraction and enabled broad experimentation with topology, tool use, and human participation.",
+    "primaryTheme": "architectures",
+    "themes": ["architectures", "communication", "verification"],
+    "techniques": ["peer-to-peer", "supervisor-worker", "human-in-the-loop"],
+    "evidence": {
+      "status": "peer-reviewed",
+      "maturity": "implemented",
+      "limitations": "The framework enables many patterns but does not identify which topology is correct for a given task."
+    },
+    "artifacts": [
+      { "kind": "code", "url": "https://github.com/microsoft/autogen" }
+    ],
+    "lifecycle": {
+      "status": "maintenance",
+      "successorId": "framework:microsoft-agent-framework"
+    },
+    "curation": {
+      "tier": "essential",
+      "addedAt": "2026-08-25",
+      "lastReviewedAt": "2026-08-25"
+    }
+  },
+  {
+    "id": "paper:metagpt",
+    "type": "paper",
+    "title": "MetaGPT: Meta Programming for A Multi-Agent Collaborative Framework",
+    "url": "https://arxiv.org/abs/2308.00352",
+    "authors": ["Sirui Hong", "Mingchen Zhuge", "Jonathan Chen", "Xiawu Zheng", "Yuheng Cheng", "Jinlin Wang", "Ceyao Zhang", "Zili Wang", "Steven Ka Shing Yau", "Zijuan Lin", "Liyang Zhou", "Chenyu Ran", "Lingfeng Xiao", "Chenglin Wu", "Jürgen Schmidhuber"],
+    "organizations": [],
+    "publishedAt": "2023-08-01",
+    "updatedAt": "2024-04-23",
+    "summary": "Encodes software roles and standard operating procedures so agents exchange structured intermediate artifacts across a development workflow.",
+    "whyNotable": "Shows how explicit process constraints and typed deliverables can replace unconstrained chat with an auditable production line.",
+    "primaryTheme": "architectures",
+    "themes": ["architectures", "allocation", "state"],
+    "techniques": ["role-specialization", "shared-artifacts", "task-decomposition"],
+    "evidence": {
+      "status": "peer-reviewed",
+      "maturity": "evaluated",
+      "limitations": "Results are concentrated in software-generation tasks and depend strongly on prescribed roles and workflow artifacts."
+    },
+    "artifacts": [
+      { "kind": "code", "url": "https://github.com/geekan/MetaGPT" }
+    ],
+    "lifecycle": { "status": "active" },
+    "curation": {
+      "tier": "strong",
+      "addedAt": "2026-08-25",
+      "lastReviewedAt": "2026-08-25"
+    }
+  },
+  {
+    "id": "paper:multiagent-debate",
+    "type": "paper",
+    "title": "Improving Factuality and Reasoning in Language Models through Multiagent Debate",
+    "url": "https://proceedings.mlr.press/v235/du24e.html",
+    "authors": ["Yilun Du", "Shuang Li", "Antonio Torralba", "Joshua B. Tenenbaum", "Igor Mordatch"],
+    "organizations": [],
+    "publishedAt": "2024-07-01",
+    "summary": "Coordinates multiple language-model instances through iterative proposal, critique, and convergence to improve selected reasoning and factual tasks.",
+    "whyNotable": "Established the modern multi-agent debate pattern and a baseline for asking whether interaction adds value beyond independent sampling and voting.",
+    "primaryTheme": "architectures",
+    "themes": ["architectures", "verification", "evaluation"],
+    "techniques": ["debate", "voting", "verification-loop"],
+    "evidence": {
+      "status": "peer-reviewed",
+      "maturity": "evaluated",
+      "limitations": "Benefits depend on task, diversity, and aggregation quality; correlated errors and consensus pressure can erase gains."
+    },
+    "artifacts": [],
+    "lifecycle": { "status": "active" },
+    "curation": {
+      "tier": "essential",
+      "addedAt": "2026-08-25",
+      "lastReviewedAt": "2026-08-25"
+    }
+  },
+  {
+    "id": "paper:gptswarm",
+    "type": "paper",
+    "title": "GPTSwarm: Language Agents as Optimizable Graphs",
+    "url": "https://proceedings.mlr.press/v235/zhuge24a.html",
+    "authors": ["Mingchen Zhuge", "Wenyi Wang", "Louis Kirsch", "Francesco Faccio", "Dmitrii Khizbullin", "Jürgen Schmidhuber"],
+    "organizations": [],
+    "publishedAt": "2024-07-01",
+    "summary": "Represents agents and their information flow as a graph whose prompts and connectivity can be optimized for a task.",
+    "whyNotable": "Turns multi-agent topology from a hand-written diagram into an explicit, composable, and optimizable system design object.",
+    "primaryTheme": "architectures",
+    "themes": ["architectures", "communication", "evaluation"],
+    "techniques": ["graph-workflow", "dynamic-routing", "sparse-communication"],
+    "evidence": {
+      "status": "peer-reviewed",
+      "maturity": "evaluated",
+      "limitations": "Optimization costs and benchmark-specific graph search can limit transfer to changing real-world environments."
+    },
+    "artifacts": [
+      { "kind": "code", "url": "https://github.com/metauto-ai/GPTSwarm" }
+    ],
+    "lifecycle": { "status": "active" },
+    "curation": {
+      "tier": "strong",
+      "addedAt": "2026-08-25",
+      "lastReviewedAt": "2026-08-25"
+    }
+  },
+  {
+    "id": "paper:mixture-of-agents",
+    "type": "paper",
+    "title": "Mixture-of-Agents Enhances Large Language Model Capabilities",
+    "url": "https://arxiv.org/abs/2406.04692",
+    "authors": ["Junlin Wang", "Jue Wang", "Ben Athiwaratkun", "Ce Zhang", "James Zou"],
+    "organizations": [],
+    "publishedAt": "2024-06-07",
+    "updatedAt": "2025-04-01",
+    "summary": "Uses layered sets of proposer models and aggregators so each layer refines responses using outputs from the previous layer.",
+    "whyNotable": "Provides a strong heterogeneous aggregation pattern and evidence that model diversity can matter more than repeated samples from one model.",
+    "primaryTheme": "architectures",
+    "themes": ["architectures", "verification", "evaluation"],
+    "techniques": ["role-specialization", "voting", "verification-loop"],
+    "evidence": {
+      "status": "peer-reviewed",
+      "maturity": "evaluated",
+      "limitations": "The layered ensemble primarily improves answer synthesis and does not address long-horizon action, shared state, or recovery."
+    },
+    "artifacts": [
+      { "kind": "code", "url": "https://github.com/togethercomputer/MoA" }
+    ],
+    "lifecycle": { "status": "active" },
+    "curation": {
+      "tier": "strong",
+      "addedAt": "2026-08-25",
+      "lastReviewedAt": "2026-08-25"
+    }
+  },
+  {
+    "id": "paper:magentic-one",
+    "type": "paper",
+    "title": "Magentic-One: A Generalist Multi-Agent System for Solving Complex Tasks",
+    "url": "https://arxiv.org/abs/2411.04468",
+    "authors": ["Adam Fourney", "Gagan Bansal", "Hussein Mozannar", "Cheng Tan", "Eduardo Salinas", "Erkang Zhu", "Friederike Niedtner", "Grace Proebsting", "Griffin Bassman", "Jack Gerrits", "Jacob Alber", "Peter Chang", "Ricky Loynd", "Robert West", "Victor Dibia", "Ahmed Awadallah", "Ece Kamar", "Rafah Hosn", "Saleema Amershi"],
+    "organizations": ["Microsoft Research"],
+    "publishedAt": "2024-11-07",
+    "summary": "Uses an orchestrator with task and progress ledgers to plan, delegate to tool-specialized agents, monitor progress, and replan after errors.",
+    "whyNotable": "Supplies a concrete supervisor-worker reference architecture with explicit working memory, recovery behavior, modular specialists, and benchmark evidence.",
+    "primaryTheme": "allocation",
+    "themes": ["architectures", "allocation", "state", "verification"],
+    "techniques": ["supervisor-worker", "task-decomposition", "replanning", "shared-memory"],
+    "evidence": {
+      "status": "preprint",
+      "maturity": "evaluated",
+      "limitations": "Competitive benchmark performance remains far from human reliability and does not isolate every contribution of the orchestration design."
+    },
+    "artifacts": [
+      { "kind": "code", "url": "https://github.com/microsoft/autogen/blob/main/python/packages/autogen-ext/src/autogen_ext/teams/magentic_one.py" }
+    ],
+    "lifecycle": { "status": "maintenance" },
+    "curation": {
+      "tier": "essential",
+      "addedAt": "2026-08-25",
+      "lastReviewedAt": "2026-08-25"
+    }
+  },
+  {
+    "id": "report:building-effective-agents",
+    "type": "engineering-report",
+    "title": "Building Effective Agents",
+    "url": "https://www.anthropic.com/engineering/building-effective-agents",
+    "authors": [],
+    "organizations": ["Anthropic"],
+    "publishedAt": "2024-12-19",
+    "summary": "Distinguishes workflows from agents and describes routing, parallelization, orchestrator-workers, and evaluator-optimizer patterns.",
+    "whyNotable": "Offers a concise practical vocabulary and argues for adding agentic complexity only when simpler deterministic compositions stop working.",
+    "primaryTheme": "architectures",
+    "themes": ["architectures", "allocation", "verification"],
+    "techniques": ["dynamic-routing", "supervisor-worker", "verification-loop", "task-decomposition"],
+    "evidence": {
+      "status": "official-engineering",
+      "maturity": "implemented",
+      "limitations": "It is first-party guidance rather than a controlled comparative study of the proposed patterns."
+    },
+    "artifacts": [],
+    "lifecycle": { "status": "active" },
+    "curation": {
+      "tier": "essential",
+      "addedAt": "2026-08-25",
+      "lastReviewedAt": "2026-08-25"
+    }
+  },
+  {
+    "id": "report:anthropic-multi-agent-research",
+    "type": "engineering-report",
+    "title": "How We Built Our Multi-Agent Research System",
+    "url": "https://www.anthropic.com/engineering/multi-agent-research-system",
+    "authors": [],
+    "organizations": ["Anthropic"],
+    "publishedAt": "2025-06-13",
+    "summary": "Describes a lead research agent delegating parallel searches to subagents with isolated contexts, tracing, synthesis, and production deployment constraints.",
+    "whyNotable": "Provides rare implementation detail on delegation prompts, breadth-first parallelism, context boundaries, token economics, observability, and synchronous bottlenecks.",
+    "primaryTheme": "allocation",
+    "themes": ["architectures", "allocation", "state", "evaluation"],
+    "techniques": ["supervisor-worker", "task-decomposition", "capability-delegation", "matched-compute-evaluation"],
+    "evidence": {
+      "status": "official-engineering",
+      "maturity": "deployed",
+      "limitations": "Reported performance gains come from an internal evaluation and the system uses substantially more tokens than a single chat agent."
+    },
+    "artifacts": [],
+    "lifecycle": { "status": "active" },
+    "curation": {
+      "tier": "essential",
+      "addedAt": "2026-08-25",
+      "lastReviewedAt": "2026-08-25"
+    }
+  },
+  {
+    "id": "workspace:parallel-claude-c-compiler",
+    "type": "experimental-workspace",
+    "title": "Building a C Compiler with a Team of Parallel Claudes",
+    "url": "https://www.anthropic.com/engineering/building-c-compiler",
+    "authors": [],
+    "organizations": ["Anthropic"],
+    "publishedAt": "2026-02-05",
+    "summary": "Runs a long-lived team of coding agents through isolated workspaces, shared task locks, Git synchronization, specialist roles, and decomposed tests.",
+    "whyNotable": "Exposes concrete coordination artifacts and failure modes from a large experimental build instead of presenting only a framework API or short benchmark run.",
+    "primaryTheme": "state",
+    "themes": ["allocation", "state", "verification", "evaluation"],
+    "techniques": ["shared-artifacts", "durable-execution", "task-decomposition", "verification-loop"],
+    "evidence": {
+      "status": "official-engineering",
+      "maturity": "experimental",
+      "limitations": "This is a first-party case study on one codebase and agent family, not a controlled general comparison of coordination strategies."
+    },
+    "artifacts": [],
+    "lifecycle": { "status": "active" },
+    "curation": {
+      "tier": "strong",
+      "addedAt": "2026-08-25",
+      "lastReviewedAt": "2026-08-25"
+    }
+  },
+  {
+    "id": "paper:ai-agents-that-matter",
+    "type": "paper",
+    "title": "AI Agents That Matter",
+    "url": "https://arxiv.org/abs/2407.01502",
+    "authors": ["Sayash Kapoor", "Benedikt Stroebl", "Zachary S. Siegel", "Nitya Nadgir", "Arvind Narayanan"],
+    "organizations": ["Princeton University"],
+    "publishedAt": "2024-07-01",
+    "updatedAt": "2025-05-01",
+    "summary": "Critiques agent benchmarks that ignore cost, overfit weak holdouts, conflate developer needs, and use non-reproducible evaluation practices.",
+    "whyNotable": "Establishes cost-accuracy Pareto analysis, standardized evaluation, and held-out generalization as prerequisites for credible agent claims.",
+    "primaryTheme": "evaluation",
+    "themes": ["evaluation", "verification"],
+    "techniques": ["matched-compute-evaluation", "coordination-benchmarking", "failure-analysis"],
+    "evidence": {
+      "status": "peer-reviewed",
+      "maturity": "evaluated",
+      "limitations": "The analysis targets agent evaluation broadly and does not isolate every coordination-specific metric needed for multi-agent systems."
+    },
+    "artifacts": [
+      { "kind": "project-page", "url": "https://agents.cs.princeton.edu/" }
+    ],
+    "lifecycle": { "status": "active" },
+    "curation": {
+      "tier": "essential",
+      "addedAt": "2026-08-25",
+      "lastReviewedAt": "2026-08-25"
+    }
+  },
+  {
+    "id": "report:multi-agent-risks",
+    "type": "paper",
+    "title": "Multi-Agent Risks from Advanced AI",
+    "url": "https://arxiv.org/abs/2502.14143",
+    "authors": [],
+    "organizations": ["Cooperative AI Foundation"],
+    "publishedAt": "2025-02-19",
+    "summary": "Organizes advanced multi-agent risks around miscoordination, conflict, and collusion plus seven underlying structural risk factors.",
+    "whyNotable": "Provides a broad risk taxonomy connecting incentives, information asymmetry, network effects, commitment, emergent agency, and security.",
+    "primaryTheme": "governance",
+    "themes": ["governance", "communication", "evaluation"],
+    "techniques": ["mechanism-design", "identity-and-trust", "failure-analysis"],
+    "evidence": {
+      "status": "preprint",
+      "maturity": "conceptual",
+      "limitations": "The report synthesizes heterogeneous evidence and forward-looking scenarios rather than validating one complete mitigation stack."
+    },
+    "artifacts": [],
+    "lifecycle": { "status": "active" },
+    "curation": {
+      "tier": "essential",
+      "addedAt": "2026-08-25",
+      "lastReviewedAt": "2026-08-25"
+    }
+  },
+  {
+    "id": "paper:mast-failures",
+    "type": "paper",
+    "title": "Why Do Multi-Agent LLM Systems Fail?",
+    "url": "https://arxiv.org/abs/2503.13657",
+    "authors": ["Mert Cemri", "Melissa Z. Pan", "Shuyi Yang", "Lakshya A. Agrawal", "Bhavya Chopra", "Rishabh Tiwari", "Kurt Keutzer", "Aditya Parameswaran", "Dan Klein", "Kannan Ramchandran", "Matei Zaharia", "Joseph E. Gonzalez", "Ion Stoica"],
+    "organizations": [],
+    "publishedAt": "2025-03-17",
+    "updatedAt": "2025-10-26",
+    "summary": "Derives MAST, a taxonomy of fourteen multi-agent failure modes across system design, inter-agent misalignment, and verification or termination.",
+    "whyNotable": "Grounds failure analysis in more than 1,600 traces across multiple systems and shows that aggregate success hides distinct architectural failure profiles.",
+    "primaryTheme": "verification",
+    "themes": ["architectures", "verification", "evaluation"],
+    "techniques": ["failure-analysis", "verification-loop", "replanning"],
+    "evidence": {
+      "status": "preprint",
+      "maturity": "evaluated",
+      "limitations": "Failure labels and interventions cover a selected set of frameworks and tasks and do not prove the taxonomy is exhaustive."
+    },
+    "artifacts": [],
+    "lifecycle": { "status": "active" },
+    "curation": {
+      "tier": "essential",
+      "addedAt": "2026-08-25",
+      "lastReviewedAt": "2026-08-25"
+    }
+  },
+  {
+    "id": "benchmark:multiagentbench",
+    "type": "benchmark",
+    "title": "MultiAgentBench: Evaluating the Collaboration and Competition of LLM Agents",
+    "url": "https://aclanthology.org/2025.acl-long.421/",
+    "authors": ["Kunlun Zhu", "Hongyi Du", "Zhaochen Hong", "Xiaocheng Yang", "Shuyi Guo", "Zhe Wang", "Zhenhailong Wang", "Cheng Qian", "Xiangru Tang", "Heng Ji", "Jiaxuan You"],
+    "organizations": [],
+    "publishedAt": "2025-07-01",
+    "summary": "Evaluates collaboration and competition across six interactive scenarios, milestone metrics, multiple reasoning strategies, and star, chain, tree, and graph topologies.",
+    "whyNotable": "Moves beyond final accuracy by measuring coordination progress and comparing explicit communication structures in interactive environments.",
+    "primaryTheme": "evaluation",
+    "themes": ["architectures", "communication", "evaluation"],
+    "techniques": ["coordination-benchmarking", "graph-workflow", "matched-compute-evaluation"],
+    "evidence": {
+      "status": "peer-reviewed",
+      "maturity": "evaluated",
+      "limitations": "Scenario and model choices remain narrower than production environments, and topology results are not universal prescriptions."
+    },
+    "artifacts": [
+      { "kind": "code", "url": "https://github.com/MultiagentBench/MARBLE" }
+    ],
+    "lifecycle": { "status": "active" },
+    "curation": {
+      "tier": "essential",
+      "addedAt": "2026-08-25",
+      "lastReviewedAt": "2026-08-25"
+    }
+  },
+  {
+    "id": "benchmark:llm-coordination",
+    "type": "benchmark",
+    "title": "LLM-Coordination: Evaluating and Analyzing Multi-Agent Coordination Abilities in Large Language Models",
+    "url": "https://aclanthology.org/2025.findings-naacl.448/",
+    "authors": ["Saaket Agashe", "Yue Fan", "Anthony Reyna", "Xin Eric Wang"],
+    "organizations": [],
+    "publishedAt": "2025-04-01",
+    "summary": "Tests agentic coordination and question answering in pure coordination games requiring environment comprehension, partner modeling, and joint planning.",
+    "whyNotable": "Isolates coordination ability from broad tool-use competence and reveals particular weakness when success requires reasoning about a partner’s beliefs.",
+    "primaryTheme": "evaluation",
+    "themes": ["foundations", "communication", "evaluation"],
+    "techniques": ["coordination-benchmarking", "joint-intentions", "dec-pomdp"],
+    "evidence": {
+      "status": "peer-reviewed",
+      "maturity": "evaluated",
+      "limitations": "Pure coordination games are controlled and interpretable but only approximate open-ended organizational coordination."
+    },
+    "artifacts": [],
+    "lifecycle": { "status": "active" },
+    "curation": {
+      "tier": "strong",
+      "addedAt": "2026-08-25",
+      "lastReviewedAt": "2026-08-25"
+    }
+  },
+  {
+    "id": "spec:a2a",
+    "type": "specification",
+    "title": "Agent2Agent Protocol Specification",
+    "url": "https://a2a-protocol.org/latest/specification/",
+    "authors": [],
+    "organizations": ["A2A Protocol Project"],
+    "publishedAt": "2025-04-09",
+    "updatedAt": "2026-03-12",
+    "summary": "Defines discovery, agent cards, messages, collaborative task lifecycle, streaming, push notifications, authentication declarations, and version negotiation for opaque remote agents.",
+    "whyNotable": "Provides the first stable, broadly supported open contract aimed specifically at cross-vendor agent-to-agent interoperability rather than tool invocation.",
+    "primaryTheme": "communication",
+    "themes": ["communication", "state", "governance"],
+    "techniques": ["interoperability", "identity-and-trust", "capability-delegation"],
+    "evidence": {
+      "status": "official-specification",
+      "maturity": "implemented",
+      "limitations": "The protocol transports collaborative tasks but does not choose topology, allocation, verification, or recovery policy for an agent team."
+    },
+    "artifacts": [
+      { "kind": "code", "url": "https://github.com/a2aproject/A2A" },
+      { "kind": "specification", "url": "https://github.com/a2aproject/A2A/blob/main/docs/specification.md" }
+    ],
+    "lifecycle": { "status": "active" },
+    "curation": {
+      "tier": "essential",
+      "addedAt": "2026-08-25",
+      "lastReviewedAt": "2026-08-25"
+    }
+  },
+  {
+    "id": "spec:mcp",
+    "type": "specification",
+    "title": "Model Context Protocol Specification",
+    "url": "https://modelcontextprotocol.io/specification/latest",
+    "authors": [],
+    "organizations": ["Model Context Protocol Project"],
+    "publishedAt": "2024-11-25",
+    "updatedAt": "2026-07-28",
+    "summary": "Standardizes how agentic applications connect to tools, resources, prompts, context providers, and long-running task extensions through negotiated capabilities.",
+    "whyNotable": "Creates a composable tool and context boundary that complements A2A and materially shapes how coordinated agents share external capabilities.",
+    "primaryTheme": "communication",
+    "themes": ["communication", "state", "governance"],
+    "techniques": ["interoperability", "capability-delegation", "least-privilege"],
+    "evidence": {
+      "status": "official-specification",
+      "maturity": "deployed",
+      "limitations": "MCP standardizes tool and context integration; it is not a general peer-agent coordination protocol or orchestration strategy."
+    },
+    "artifacts": [
+      { "kind": "specification", "url": "https://modelcontextprotocol.io/specification/latest" }
+    ],
+    "lifecycle": { "status": "active" },
+    "curation": {
+      "tier": "essential",
+      "addedAt": "2026-08-25",
+      "lastReviewedAt": "2026-08-25"
+    }
+  },
+  {
+    "id": "paper:scaling-agent-systems",
+    "type": "paper",
+    "title": "Towards a Science of Scaling Agent Systems",
+    "url": "https://arxiv.org/abs/2512.08296",
+    "authors": ["Yubin Kim", "Ken Gu", "Chanwoo Park", "Chunjong Park", "Samuel Schmidgall", "A. Ali Heydari", "Yao Yan", "Zhihan Zhang", "Yuchen Zhuang", "Yun Liu", "Mark Malhotra", "Paul Pu Liang", "Hae Won Park", "Yuzhe Yang", "Xuhai Xu", "Yilun Du", "Shwetak Patel", "Tim Althoff", "Daniel McDuff", "Xin Liu"],
+    "organizations": ["Google Research"],
+    "publishedAt": "2025-12-09",
+    "updatedAt": "2026-04-08",
+    "summary": "Compares 260 controlled agent configurations across single, independent, centralized, decentralized, and hybrid architectures with standardized compute and tools.",
+    "whyNotable": "Finds architecture-task alignment dominates agent count: decomposable work improves substantially while sequential planning can degrade sharply, and central verification contains errors better.",
+    "primaryTheme": "evaluation",
+    "themes": ["architectures", "verification", "evaluation"],
+    "techniques": ["matched-compute-evaluation", "coordination-benchmarking", "supervisor-worker", "failure-analysis"],
+    "evidence": {
+      "status": "preprint",
+      "maturity": "evaluated",
+      "limitations": "The predictive model explains only part of performance variance and its architecture preferences require validation on further tasks and systems."
+    },
+    "artifacts": [],
+    "lifecycle": { "status": "active" },
+    "curation": {
+      "tier": "essential",
+      "addedAt": "2026-08-25",
+      "lastReviewedAt": "2026-08-25"
+    }
+  },
+  {
+    "id": "benchmark:silo-bench",
+    "type": "benchmark",
+    "title": "SILO-BENCH: A Scalable Environment for Evaluating Distributed Coordination in Multi-Agent LLM Systems",
+    "url": "https://aclanthology.org/2026.acl-long.1354/",
+    "authors": ["Yuzhe Zhang", "Feiran Liu", "Yi Shan", "Xinyi Huang", "Xin Yang", "Yueqi Zhu", "Xuxin Cheng", "Cao Liu", "Ke Zeng", "Terry Jingchen Zhang", "Wenyuan Jiang"],
+    "organizations": [],
+    "publishedAt": "2026-07-01",
+    "summary": "Evaluates role-free collaboration under information silos across communication-complexity levels, protocols, agent scales, and frontier models.",
+    "whyNotable": "Reveals a communication-reasoning gap: agents exchange information actively yet fail to integrate distributed state, with performance collapsing at larger scales.",
+    "primaryTheme": "evaluation",
+    "themes": ["communication", "state", "evaluation"],
+    "techniques": ["coordination-benchmarking", "sparse-communication", "shared-memory", "failure-analysis"],
+    "evidence": {
+      "status": "peer-reviewed",
+      "maturity": "evaluated",
+      "limitations": "Algorithmic information-silo tasks isolate coordination cleanly but do not represent every semantic or tool-mediated production workflow."
+    },
+    "artifacts": [
+      { "kind": "code", "url": "https://github.com/jwyjohn/acl26-silo-bench" }
+    ],
+    "lifecycle": { "status": "active" },
+    "curation": {
+      "tier": "essential",
+      "addedAt": "2026-08-25",
+      "lastReviewedAt": "2026-08-25"
+    }
+  },
+  {
+    "id": "framework:microsoft-agent-framework",
+    "type": "framework",
+    "title": "Microsoft Agent Framework",
+    "url": "https://github.com/microsoft/agent-framework",
+    "authors": [],
+    "organizations": ["Microsoft"],
+    "publishedAt": "2026-04-02",
+    "summary": "Provides Python and .NET agents plus graph workflows for sequential, concurrent, handoff, group-chat, and Magentic orchestration with checkpoints and human interaction.",
+    "whyNotable": "Is the supported convergence path for AutoGen and Semantic Kernel and exposes a broad set of explicit orchestration patterns for production use.",
+    "primaryTheme": "architectures",
+    "themes": ["architectures", "state", "verification", "communication"],
+    "techniques": ["graph-workflow", "supervisor-worker", "durable-execution", "human-in-the-loop"],
+    "evidence": {
+      "status": "documentation",
+      "maturity": "implemented",
+      "limitations": "A broad supported feature set is not evidence that one included orchestration pattern outperforms alternatives for a particular task."
+    },
+    "artifacts": [
+      { "kind": "documentation", "url": "https://learn.microsoft.com/agent-framework/" }
+    ],
+    "lifecycle": { "status": "active" },
+    "curation": {
+      "tier": "strong",
+      "addedAt": "2026-08-25",
+      "lastReviewedAt": "2026-08-25"
+    }
+  },
+  {
+    "id": "framework:langgraph",
+    "type": "framework",
+    "title": "LangGraph",
+    "url": "https://github.com/langchain-ai/langgraph",
+    "authors": [],
+    "organizations": ["LangChain"],
+    "publishedAt": "2024-01-17",
+    "summary": "Builds stateful agent systems as explicit graphs with shared state, reducers, subgraphs, checkpoints, interrupts, streaming, and durable execution.",
+    "whyNotable": "Makes control flow and state transitions inspectable while supporting both deterministic workflows and agent-driven branching in long-running systems.",
+    "primaryTheme": "state",
+    "themes": ["architectures", "state", "verification"],
+    "techniques": ["graph-workflow", "shared-memory", "durable-execution", "human-in-the-loop"],
+    "evidence": {
+      "status": "documentation",
+      "maturity": "implemented",
+      "limitations": "Framework primitives improve control and persistence but do not automatically produce effective decomposition, routing, or verification policies."
+    },
+    "artifacts": [
+      { "kind": "documentation", "url": "https://docs.langchain.com/oss/python/langgraph/overview" }
+    ],
+    "lifecycle": { "status": "active" },
+    "curation": {
+      "tier": "strong",
+      "addedAt": "2026-08-25",
+      "lastReviewedAt": "2026-08-25"
+    }
+  },
+  {
+    "id": "framework:openai-agents-sdk",
+    "type": "framework",
+    "title": "OpenAI Agents SDK",
+    "url": "https://github.com/openai/openai-agents-python",
+    "authors": [],
+    "organizations": ["OpenAI"],
+    "publishedAt": "2025-03-11",
+    "summary": "Provides manager-style agents-as-tools, peer handoffs, guardrails, sessions, tracing, approvals, parallel execution, and protocol integration in a compact SDK.",
+    "whyNotable": "Clearly separates manager-controlled delegation from peer ownership transfer and offers a small implementation surface for comparing those orchestration choices.",
+    "primaryTheme": "architectures",
+    "themes": ["architectures", "allocation", "verification", "communication"],
+    "techniques": ["supervisor-worker", "peer-to-peer", "capability-delegation", "human-in-the-loop"],
+    "evidence": {
+      "status": "documentation",
+      "maturity": "implemented",
+      "limitations": "The SDK documents coordination primitives but does not establish that model-driven handoffs or managers are optimal for a given workload."
+    },
+    "artifacts": [
+      { "kind": "documentation", "url": "https://openai.github.io/openai-agents-python/multi_agent/" }
+    ],
+    "lifecycle": { "status": "active" },
+    "curation": {
+      "tier": "strong",
+      "addedAt": "2026-08-25",
+      "lastReviewedAt": "2026-08-25"
+    }
+  },
+  {
+    "id": "talk:deepmind-millions-agents",
+    "type": "talk",
+    "title": "When Millions of AI Agents Meet",
+    "url": "https://www.youtube.com/watch?v=V04bm-3d6EQ",
+    "authors": ["Nenad Tomašev", "Hannah Fry"],
+    "organizations": ["Google DeepMind"],
+    "publishedAt": "2026-06-23",
+    "summary": "Explores societies of specialist and generalist agents that delegate, negotiate, transact, and self-coordinate alongside trust, reliability, and safety challenges.",
+    "whyNotable": "Connects orchestration to agent economies, correlated failures, collusion, security, specialist certification, and distributed alignment in an accessible expert discussion.",
+    "primaryTheme": "governance",
+    "themes": ["architectures", "allocation", "governance"],
+    "techniques": ["role-specialization", "negotiation", "identity-and-trust", "mechanism-design"],
+    "evidence": {
+      "status": "primary-source-talk",
+      "maturity": "conceptual",
+      "limitations": "This is an expert interview rather than peer-reviewed empirical evidence, and several claims are forward-looking."
+    },
+    "artifacts": [
+      { "kind": "video", "url": "https://www.youtube.com/watch?v=V04bm-3d6EQ" }
+    ],
+    "lifecycle": { "status": "active" },
+    "curation": {
+      "tier": "watch",
+      "addedAt": "2026-06-23",
+      "lastReviewedAt": "2026-08-25"
+    },
+    "media": {
+      "channel": "Google DeepMind",
+      "durationSeconds": 2558,
+      "videoId": "V04bm-3d6EQ"
+    }
+  }
+]

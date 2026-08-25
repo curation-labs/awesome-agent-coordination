@@ -1,0 +1,278 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/curation-labs/awesome-agent-coordination/catalog.schema.json",
+  "title": "Awesome Agent Coordination catalog",
+  "description": "Evidence-backed literature, implementations, protocols, benchmarks, and workspaces organized by coordination problem.",
+  "type": "array",
+  "items": {
+    "type": "object",
+    "additionalProperties": false,
+    "required": [
+      "id",
+      "type",
+      "title",
+      "url",
+      "authors",
+      "organizations",
+      "publishedAt",
+      "summary",
+      "whyNotable",
+      "primaryTheme",
+      "themes",
+      "techniques",
+      "evidence",
+      "artifacts",
+      "lifecycle",
+      "curation"
+    ],
+    "properties": {
+      "id": {
+        "type": "string",
+        "pattern": "^[a-z0-9][a-z0-9:._-]*$"
+      },
+      "type": {
+        "type": "string",
+        "enum": [
+          "paper",
+          "survey",
+          "specification",
+          "benchmark",
+          "framework",
+          "tool",
+          "repository",
+          "engineering-report",
+          "experimental-workspace",
+          "talk"
+        ]
+      },
+      "title": {
+        "type": "string",
+        "minLength": 1
+      },
+      "url": {
+        "type": "string",
+        "format": "uri",
+        "pattern": "^https?://"
+      },
+      "authors": {
+        "type": "array",
+        "uniqueItems": true,
+        "items": { "type": "string", "minLength": 1 }
+      },
+      "organizations": {
+        "type": "array",
+        "uniqueItems": true,
+        "items": { "type": "string", "minLength": 1 }
+      },
+      "publishedAt": {
+        "type": "string",
+        "format": "date"
+      },
+      "updatedAt": {
+        "type": "string",
+        "format": "date"
+      },
+      "summary": {
+        "type": "string",
+        "minLength": 20
+      },
+      "whyNotable": {
+        "type": "string",
+        "minLength": 20
+      },
+      "primaryTheme": {
+        "type": "string",
+        "enum": [
+          "foundations",
+          "architectures",
+          "allocation",
+          "communication",
+          "state",
+          "verification",
+          "governance",
+          "evaluation"
+        ]
+      },
+      "themes": {
+        "type": "array",
+        "minItems": 1,
+        "uniqueItems": true,
+        "items": {
+          "type": "string",
+          "enum": [
+            "foundations",
+            "architectures",
+            "allocation",
+            "communication",
+            "state",
+            "verification",
+            "governance",
+            "evaluation"
+          ]
+        }
+      },
+      "techniques": {
+        "type": "array",
+        "minItems": 1,
+        "uniqueItems": true,
+        "items": {
+          "type": "string",
+          "enum": [
+            "contract-net",
+            "blackboard",
+            "joint-intentions",
+            "dec-pomdp",
+            "centralized-training-decentralized-execution",
+            "learned-communication",
+            "role-specialization",
+            "supervisor-worker",
+            "peer-to-peer",
+            "hierarchical-control",
+            "graph-workflow",
+            "dynamic-routing",
+            "task-decomposition",
+            "capability-delegation",
+            "debate",
+            "voting",
+            "sparse-communication",
+            "shared-artifacts",
+            "shared-memory",
+            "durable-execution",
+            "verification-loop",
+            "replanning",
+            "human-in-the-loop",
+            "negotiation",
+            "mechanism-design",
+            "identity-and-trust",
+            "least-privilege",
+            "failure-analysis",
+            "matched-compute-evaluation",
+            "coordination-benchmarking",
+            "interoperability"
+          ]
+        }
+      },
+      "evidence": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["status", "maturity", "limitations"],
+        "properties": {
+          "status": {
+            "type": "string",
+            "enum": [
+              "peer-reviewed",
+              "preprint",
+              "official-specification",
+              "official-engineering",
+              "primary-source-talk",
+              "historical-standard",
+              "documentation"
+            ]
+          },
+          "maturity": {
+            "type": "string",
+            "enum": [
+              "conceptual",
+              "implemented",
+              "evaluated",
+              "reproduced",
+              "deployed",
+              "experimental"
+            ]
+          },
+          "limitations": {
+            "type": "string",
+            "minLength": 20
+          }
+        }
+      },
+      "artifacts": {
+        "type": "array",
+        "uniqueItems": true,
+        "items": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["kind", "url"],
+          "properties": {
+            "kind": {
+              "type": "string",
+              "enum": [
+                "code",
+                "data",
+                "documentation",
+                "specification",
+                "project-page",
+                "video"
+              ]
+            },
+            "url": {
+              "type": "string",
+              "format": "uri",
+              "pattern": "^https?://"
+            }
+          }
+        }
+      },
+      "lifecycle": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["status"],
+        "properties": {
+          "status": {
+            "type": "string",
+            "enum": [
+              "active",
+              "maintenance",
+              "historical",
+              "superseded",
+              "archived"
+            ]
+          },
+          "successorId": {
+            "type": "string",
+            "pattern": "^[a-z0-9][a-z0-9:._-]*$"
+          }
+        }
+      },
+      "curation": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["tier", "addedAt", "lastReviewedAt"],
+        "properties": {
+          "tier": {
+            "type": "string",
+            "enum": ["essential", "strong", "watch"]
+          },
+          "addedAt": {
+            "type": "string",
+            "format": "date"
+          },
+          "lastReviewedAt": {
+            "type": "string",
+            "format": "date"
+          }
+        }
+      },
+      "media": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["channel", "durationSeconds", "videoId"],
+        "properties": {
+          "channel": { "type": "string", "minLength": 1 },
+          "durationSeconds": { "type": "integer", "minimum": 1 },
+          "videoId": { "type": "string", "minLength": 1 }
+        }
+      }
+    },
+    "anyOf": [
+      { "properties": { "authors": { "minItems": 1 } } },
+      { "properties": { "organizations": { "minItems": 1 } } }
+    ],
+    "allOf": [
+      {
+        "if": { "properties": { "type": { "const": "talk" } } },
+        "then": { "required": ["media"] }
+      }
+    ]
+  }
+}

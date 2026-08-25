@@ -1,0 +1,20 @@
+{
+  "name": "awesome-agent-coordination",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Evidence-backed agent coordination literature, techniques, tools, and workspaces.",
+  "type": "module",
+  "engines": {
+    "node": ">=24"
+  },
+  "scripts": {
+    "test": "node --test scripts/*.test.mjs",
+    "validate": "node scripts/validate.mjs",
+    "generate": "node scripts/regenerate-readme.mjs",
+    "check:generated": "node scripts/regenerate-readme.mjs --check",
+    "check:freshness": "node scripts/check-freshness.mjs",
+    "check:links": "node scripts/check-links.mjs",
+    "check:syntax": "node --check scripts/*.mjs",
+    "check": "npm test && npm run validate && npm run check:generated && npm run check:freshness && npm run check:syntax"
+  }
+}

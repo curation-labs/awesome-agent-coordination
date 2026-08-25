@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+# ABOUTME: Shim so the pipeline runs as `scripts/add <youtube-url>`.
+# ABOUTME: Delegates to scripts/add.mjs from the repo root.
+set -euo pipefail
+dir="$(cd "$(dirname "$0")/.." && pwd)"
+exec node "$dir/scripts/add.mjs" "$@"
