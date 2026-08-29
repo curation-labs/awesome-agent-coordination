@@ -151,6 +151,11 @@ markers; run `npm run generate` after changing catalog records.
   _Limitation: Competitive benchmark performance remains far from human reliability and does not isolate every contribution of the orchestration design._ `supervisor-worker` `task-decomposition` `replanning` `shared-memory` `theme:architectures` `theme:state` `theme:verification`
   [Code](https://github.com/microsoft/autogen/blob/main/python/packages/autogen-ext/src/autogen_ext/teams/magentic_one.py)
 
+- `Paper` `Strong` **[Multi-Agent Collaboration via Evolving Orchestration](https://arxiv.org/abs/2505.19591)** — Yufan Dang, Chen Qian, Xueheng Luo, et al. · 2025 · Peer reviewed · Evaluated
+  Trains a central orchestrator with reinforcement learning to choose which agent acts next as the task state changes, instead of fixing the team structure before the run. **Why it matters:** Attributes its performance and cost gains to compact cyclic reasoning structures that emerge as the orchestrator evolves rather than to adding agents or a stronger model.
+  _Limitation: Reported cost savings cover inference and exclude the reinforcement learning run that trains the orchestrator, which also concentrates every routing decision in one component._ `dynamic-routing` `supervisor-worker` `task-decomposition` `hierarchical-control` `theme:architectures` `theme:evaluation`
+  [Code](https://github.com/OpenBMB/ChatDev/tree/puppeteer)
+
 ## Communication and interoperability
 
 **Technique lens:** Agents coordinate through messages, shared artifacts, capability discovery, communication graphs, and protocols such as FIPA ACL, A2A, and MCP.
@@ -192,6 +197,11 @@ markers; run `npm run generate` after changing catalog records.
   _Limitation: Framework primitives improve control and persistence but do not automatically produce effective decomposition, routing, or verification policies._ `graph-workflow` `shared-memory` `durable-execution` `human-in-the-loop` `theme:architectures` `theme:verification`
   [Docs](https://docs.langchain.com/oss/python/langgraph/overview)
 
+- `Tool` `Watch` **[herdr](https://github.com/herdrdev/herdr)** — Herdr · 2026 · Documentation · Implemented
+  Runs each coding agent in a persistent pane on a background server and exposes a socket API for opening panes, sending input to another agent, and waiting until an agent reports a given status. **Why it matters:** Moves session persistence and agent status into the runtime below the agent, so idle, working, and blocked become states another agent or a script can wait on across several agent CLIs.
+  _Limitation: Panes exchange raw terminal input rather than structured messages, and the documentation reports no comparison against coordinating the same agents through a framework or a shell._ `durable-execution` `peer-to-peer` `human-in-the-loop` `theme:architectures` `theme:verification`
+  [Docs](https://herdr.dev/docs/)
+
 ## Verification, recovery, and human oversight
 
 **Technique lens:** Verification loops, explicit stop conditions, replanning, approvals, and independent reviewers contain compounding errors and support recovery.
@@ -203,6 +213,11 @@ markers; run `npm run generate` after changing catalog records.
 - `Paper` `Essential` **[Why Do Multi-Agent LLM Systems Fail?](https://arxiv.org/abs/2503.13657)** — Mert Cemri, Melissa Z. Pan, Shuyi Yang, et al. · 2025 · Preprint · Evaluated
   Derives MAST, a taxonomy of fourteen multi-agent failure modes across system design, inter-agent misalignment, and verification or termination. **Why it matters:** Grounds failure analysis in more than 1,600 traces across multiple systems and shows that aggregate success hides distinct architectural failure profiles.
   _Limitation: Failure labels and interventions cover a selected set of frameworks and tasks and do not prove the taxonomy is exhaustive._ `failure-analysis` `verification-loop` `replanning` `theme:architectures` `theme:evaluation`
+
+
+- `Paper` `Watch` **[If You Want Coherence, Orchestrate a Team of Rivals: Multi-Agent Models of Organizational Intelligence](https://arxiv.org/abs/2601.14351)** — Gopal Vijayaraghavan, Prasanth Jayachandran, Arun Murthy, et al. · 2026 · Preprint · Deployed
+  Splits work across planner, executor, and critic roles where a critic can veto an output outright, and routes tool calls through a remote executor that returns summaries rather than raw data. **Why it matters:** Replaces majority voting with hierarchical veto authority and reports catching more than ninety percent of internal errors before they reach a user in a running system of over fifty agents.
+  _Limitation: The interception rate comes from the authors' own production traces rather than a public benchmark, and no matched-compute or single-agent baseline is reported for the same workload._ `verification-loop` `role-specialization` `hierarchical-control` `sparse-communication` `theme:architectures` `theme:communication`
 
 
 ## Incentives, safety, and governance
