@@ -829,5 +829,110 @@
       "durationSeconds": 2558,
       "videoId": "V04bm-3d6EQ"
     }
+  },
+  {
+    "id": "paper:evolving-orchestration",
+    "type": "paper",
+    "title": "Multi-Agent Collaboration via Evolving Orchestration",
+    "url": "https://arxiv.org/abs/2505.19591",
+    "authors": [
+      "Yufan Dang",
+      "Chen Qian",
+      "Xueheng Luo",
+      "Jingru Fan",
+      "Zihao Xie",
+      "Ruijie Shi",
+      "Weize Chen",
+      "Cheng Yang",
+      "Xiaoyin Che",
+      "Ye Tian",
+      "Xuantang Xiong",
+      "Lei Han",
+      "Zhiyuan Liu",
+      "Maosong Sun"
+    ],
+    "organizations": [],
+    "publishedAt": "2025-05-26",
+    "updatedAt": "2025-10-21",
+    "summary": "Trains a central orchestrator with reinforcement learning to choose which agent acts next as the task state changes, instead of fixing the team structure before the run.",
+    "whyNotable": "Attributes its performance and cost gains to compact cyclic reasoning structures that emerge as the orchestrator evolves rather than to adding agents or a stronger model.",
+    "primaryTheme": "allocation",
+    "themes": ["architectures", "allocation", "evaluation"],
+    "techniques": ["dynamic-routing", "supervisor-worker", "task-decomposition", "hierarchical-control"],
+    "evidence": {
+      "status": "peer-reviewed",
+      "maturity": "evaluated",
+      "limitations": "Reported cost savings cover inference and exclude the reinforcement learning run that trains the orchestrator, which also concentrates every routing decision in one component."
+    },
+    "artifacts": [
+      { "kind": "code", "url": "https://github.com/OpenBMB/ChatDev/tree/puppeteer" }
+    ],
+    "lifecycle": { "status": "active" },
+    "curation": {
+      "tier": "strong",
+      "addedAt": "2026-08-29",
+      "lastReviewedAt": "2026-08-29"
+    }
+  },
+  {
+    "id": "paper:team-of-rivals",
+    "type": "paper",
+    "title": "If You Want Coherence, Orchestrate a Team of Rivals: Multi-Agent Models of Organizational Intelligence",
+    "url": "https://arxiv.org/abs/2601.14351",
+    "authors": [
+      "Gopal Vijayaraghavan",
+      "Prasanth Jayachandran",
+      "Arun Murthy",
+      "Sunil Govindan",
+      "Vivek Subramanian"
+    ],
+    "organizations": ["Isotopes AI"],
+    "publishedAt": "2026-01-20",
+    "summary": "Splits work across planner, executor, and critic roles where a critic can veto an output outright, and routes tool calls through a remote executor that returns summaries rather than raw data.",
+    "whyNotable": "Replaces majority voting with hierarchical veto authority and reports catching more than ninety percent of internal errors before they reach a user in a running system of over fifty agents.",
+    "primaryTheme": "verification",
+    "themes": ["architectures", "communication", "verification"],
+    "techniques": ["verification-loop", "role-specialization", "hierarchical-control", "sparse-communication"],
+    "evidence": {
+      "status": "preprint",
+      "maturity": "deployed",
+      "limitations": "The interception rate comes from the authors' own production traces rather than a public benchmark, and no matched-compute or single-agent baseline is reported for the same workload."
+    },
+    "artifacts": [],
+    "lifecycle": { "status": "active" },
+    "curation": {
+      "tier": "watch",
+      "addedAt": "2026-08-29",
+      "lastReviewedAt": "2026-08-29"
+    }
+  },
+  {
+    "id": "tool:herdr",
+    "type": "tool",
+    "title": "herdr",
+    "url": "https://github.com/herdrdev/herdr",
+    "authors": [],
+    "organizations": ["Herdr"],
+    "publishedAt": "2026-03-27",
+    "updatedAt": "2026-08-19",
+    "summary": "Runs each coding agent in a persistent pane on a background server and exposes a socket API for opening panes, sending input to another agent, and waiting until an agent reports a given status.",
+    "whyNotable": "Moves session persistence and agent status into the runtime below the agent, so idle, working, and blocked become states another agent or a script can wait on across several agent CLIs.",
+    "primaryTheme": "state",
+    "themes": ["architectures", "state", "verification"],
+    "techniques": ["durable-execution", "peer-to-peer", "human-in-the-loop"],
+    "evidence": {
+      "status": "documentation",
+      "maturity": "implemented",
+      "limitations": "Panes exchange raw terminal input rather than structured messages, and the documentation reports no comparison against coordinating the same agents through a framework or a shell."
+    },
+    "artifacts": [
+      { "kind": "documentation", "url": "https://herdr.dev/docs/" }
+    ],
+    "lifecycle": { "status": "active" },
+    "curation": {
+      "tier": "watch",
+      "addedAt": "2026-08-29",
+      "lastReviewedAt": "2026-08-29"
+    }
   }
 ]

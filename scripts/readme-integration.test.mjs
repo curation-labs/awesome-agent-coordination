@@ -23,9 +23,11 @@ test('README generated catalog block is current', () => {
 })
 
 test('README renders every canonical resource exactly once', () => {
+  // Only the managed block is the catalog projection; prose outside it may cite a resource again.
+  const block = readme.slice(readme.indexOf(START), readme.indexOf(END))
   for (const entry of catalog) {
     assert.equal(
-      readme.split(`](${entry.url})`).length - 1,
+      block.split(`](${entry.url})`).length - 1,
       1,
       `${entry.id} should appear once`,
     )

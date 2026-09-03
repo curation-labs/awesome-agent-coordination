@@ -25,6 +25,7 @@ and workspaces that implement those ideas.
 
 ## Contents
 
+- [Structures the recent literature shares](#structures-the-recent-literature-shares)
 - [Foundations and formal models](#foundations-and-formal-models)
 - [Architectures and control topology](#architectures-and-control-topology)
 - [Task decomposition, allocation, and delegation](#task-decomposition-allocation-and-delegation)
@@ -34,6 +35,61 @@ and workspaces that implement those ideas.
 - [Incentives, safety, and governance](#incentives-safety-and-governance)
 - [Evaluation, scaling, and economics](#evaluation-scaling-and-economics)
 - [Contributing](#contributing)
+
+## Structures the recent literature shares
+
+The papers here from the second half of 2025 onward make one move in common. Coordination stops being something agents negotiate inside a conversation and becomes something held outside every model context, by a runtime, by a store, by a rule about whose output stands, or by the measurement around the run. One anatomy holds every part those papers use, and each of the four shapes below lights the parts it redesigns.
+
+![Anatomy of a multi-agent run](assets/figures/anatomy.png)
+
+*A human sits above one run. Inside the run, one turn goes from the decider to one of several role agents, through tools, to the channel, and the posted message starts the next turn. A check gates what leaves the loop. The runtime-state band holds what lives outside every context during the run, the durable store below the run survives it, and the store seeds the next run.*
+
+### 1. A runtime layer below the agents
+
+![Runtime layer below the agents](assets/figures/family-1-runtime-below-the-agent.png)
+
+Agents write status, values, and records into a runtime that holds them outside every context, and a script or harness reads that state to wait on an agent or to meter what it may spend.
+
+- [herdr](https://github.com/herdrdev/herdr) keeps each coding agent in a persistent pane and lets a script block until an agent reports a status.
+- [Prime Agent](https://arxiv.org/abs/2608.23552) keeps REPL values outside the context and carries prompts, memories, and skills to the next run through a versioned harness on disk.
+- [VeRO](https://arxiv.org/abs/2602.22480) wraps the agent under improvement so every edit auto-commits and every evaluation decrements a fixed budget.
+
+### 2. Replaceable agents around one durable store
+
+![Replaceable agents around one durable store](assets/figures/family-2-durable-store.png)
+
+Disposable agents produce raw runs, a promote rule decides what enters the store, and the store is the only thing that outlives them and seeds the next run.
+
+- [Knowledge-Centric Self-Improvement](https://arxiv.org/abs/2607.19592) spawns a fresh agent per task and lets a distiller choose which claims seed the next generation.
+- [Filesystem-Based Memory for LLM Agents](https://arxiv.org/abs/2607.26637) makes one markdown tree the sole shared state, written by a management agent and read by a search agent.
+- [Trajectory](https://github.com/letta-ai/trajectory) normalizes any harness's transcript into one record that a later agent can read.
+- [Always-On Agents](https://arxiv.org/abs/2606.30306) surveys 435 works and finds the field better at accumulating state than at governing it.
+
+### 3. A role set under one asymmetry rule
+
+![A role set under one asymmetry rule](assets/figures/family-3-roles.png)
+
+Fixed or minted roles hand candidates to one rule that decides whose output stands, a veto, a price, or a rival offer, while raw data and control flow stay outside every role.
+
+- [Team of Rivals](https://arxiv.org/abs/2601.14351) gives critics an outright veto and keeps raw data in a remote executor that returns summaries.
+- [Economy of Minds](https://arxiv.org/abs/2606.02859) has no fixed roles at all, agents bid for the right to act and wealth decides who is copied or replaced.
+- [Emergent Alignment via Competition](https://arxiv.org/abs/2509.15090) shows, in a model rather than a system, that a user choosing among rival agents can reach near-aligned outcomes.
+- The expert arrangement in [The Illusion of Multi-Agent Advantage](https://arxiv.org/abs/2606.13003) puts the asymmetry between code and model, with plain Python holding control and arithmetic.
+
+### 4. The matched-budget comparison
+
+![The matched-budget comparison](assets/figures/family-4-comparison-frame.png)
+
+One budget held outside every agent goes whole to a single agent and split across roles, with and without a validation step, and both arms land on the same record. The papers do not agree on what the budget is, a thinking-token cap, dollar cost, maximum iterations, or a fixed workload.
+
+- [Tran and Kiela](https://arxiv.org/abs/2604.02460) match thinking tokens and find the single agent best or tied at every budget but the smallest.
+- [CooperBench](https://arxiv.org/abs/2601.13295) matches the workload and finds two isolated peers retain roughly half of solo capability.
+- [The Illusion of Multi-Agent Advantage](https://arxiv.org/abs/2606.13003) matches cost and finds six automated frameworks below chain-of-thought self-consistency.
+- [Towards a Science of Scaling Agent Systems](https://arxiv.org/abs/2512.08296) matches compute across five topologies and measures errors amplifying 17.2 times without central verification against 4.4 times with it.
+
+### Prior work
+
+Entries from the first half of 2025 and earlier are best read by who decides the topology. Magentic-One, MetaGPT, and AutoGen put a runtime supervisor in the loop that picks the next speaker every turn. CAMEL, Mixture-of-Agents, and Multiagent Debate fix the arrangement by hand before anything runs. GPTSwarm hands the choice to an optimizer before deployment. Multi-Agent Collaboration via Evolving Orchestration (arXiv 2505.19591) trains the decider itself with reinforcement learning. Read against the shapes above, what changed is not that the decider got smarter but that the decision moved out of the conversation.
 
 The catalog below is generated from `data/catalog.json`. Do not edit between the
 markers; run `npm run generate` after changing catalog records.
@@ -151,6 +207,11 @@ markers; run `npm run generate` after changing catalog records.
   _Limitation: Competitive benchmark performance remains far from human reliability and does not isolate every contribution of the orchestration design._ `supervisor-worker` `task-decomposition` `replanning` `shared-memory` `theme:architectures` `theme:state` `theme:verification`
   [Code](https://github.com/microsoft/autogen/blob/main/python/packages/autogen-ext/src/autogen_ext/teams/magentic_one.py)
 
+- `Paper` `Strong` **[Multi-Agent Collaboration via Evolving Orchestration](https://arxiv.org/abs/2505.19591)** — Yufan Dang, Chen Qian, Xueheng Luo, et al. · 2025 · Peer reviewed · Evaluated
+  Trains a central orchestrator with reinforcement learning to choose which agent acts next as the task state changes, instead of fixing the team structure before the run. **Why it matters:** Attributes its performance and cost gains to compact cyclic reasoning structures that emerge as the orchestrator evolves rather than to adding agents or a stronger model.
+  _Limitation: Reported cost savings cover inference and exclude the reinforcement learning run that trains the orchestrator, which also concentrates every routing decision in one component._ `dynamic-routing` `supervisor-worker` `task-decomposition` `hierarchical-control` `theme:architectures` `theme:evaluation`
+  [Code](https://github.com/OpenBMB/ChatDev/tree/puppeteer)
+
 ## Communication and interoperability
 
 **Technique lens:** Agents coordinate through messages, shared artifacts, capability discovery, communication graphs, and protocols such as FIPA ACL, A2A, and MCP.
@@ -192,6 +253,11 @@ markers; run `npm run generate` after changing catalog records.
   _Limitation: Framework primitives improve control and persistence but do not automatically produce effective decomposition, routing, or verification policies._ `graph-workflow` `shared-memory` `durable-execution` `human-in-the-loop` `theme:architectures` `theme:verification`
   [Docs](https://docs.langchain.com/oss/python/langgraph/overview)
 
+- `Tool` `Watch` **[herdr](https://github.com/herdrdev/herdr)** — Herdr · 2026 · Documentation · Implemented
+  Runs each coding agent in a persistent pane on a background server and exposes a socket API for opening panes, sending input to another agent, and waiting until an agent reports a given status. **Why it matters:** Moves session persistence and agent status into the runtime below the agent, so idle, working, and blocked become states another agent or a script can wait on across several agent CLIs.
+  _Limitation: Panes exchange raw terminal input rather than structured messages, and the documentation reports no comparison against coordinating the same agents through a framework or a shell._ `durable-execution` `peer-to-peer` `human-in-the-loop` `theme:architectures` `theme:verification`
+  [Docs](https://herdr.dev/docs/)
+
 ## Verification, recovery, and human oversight
 
 **Technique lens:** Verification loops, explicit stop conditions, replanning, approvals, and independent reviewers contain compounding errors and support recovery.
@@ -203,6 +269,11 @@ markers; run `npm run generate` after changing catalog records.
 - `Paper` `Essential` **[Why Do Multi-Agent LLM Systems Fail?](https://arxiv.org/abs/2503.13657)** — Mert Cemri, Melissa Z. Pan, Shuyi Yang, et al. · 2025 · Preprint · Evaluated
   Derives MAST, a taxonomy of fourteen multi-agent failure modes across system design, inter-agent misalignment, and verification or termination. **Why it matters:** Grounds failure analysis in more than 1,600 traces across multiple systems and shows that aggregate success hides distinct architectural failure profiles.
   _Limitation: Failure labels and interventions cover a selected set of frameworks and tasks and do not prove the taxonomy is exhaustive._ `failure-analysis` `verification-loop` `replanning` `theme:architectures` `theme:evaluation`
+
+
+- `Paper` `Watch` **[If You Want Coherence, Orchestrate a Team of Rivals: Multi-Agent Models of Organizational Intelligence](https://arxiv.org/abs/2601.14351)** — Gopal Vijayaraghavan, Prasanth Jayachandran, Arun Murthy, et al. · 2026 · Preprint · Deployed
+  Splits work across planner, executor, and critic roles where a critic can veto an output outright, and routes tool calls through a remote executor that returns summaries rather than raw data. **Why it matters:** Replaces majority voting with hierarchical veto authority and reports catching more than ninety percent of internal errors before they reach a user in a running system of over fifty agents.
+  _Limitation: The interception rate comes from the authors' own production traces rather than a public benchmark, and no matched-compute or single-agent baseline is reported for the same workload._ `verification-loop` `role-specialization` `hierarchical-control` `sparse-communication` `theme:architectures` `theme:communication`
 
 
 ## Incentives, safety, and governance

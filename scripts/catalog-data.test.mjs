@@ -16,7 +16,7 @@ test('real catalog satisfies the executable contract', () => {
 
 test('seed corpus stays within the intended anchor range', () => {
   assert.ok(catalog.length >= 20, `expected at least 20 entries, got ${catalog.length}`)
-  assert.ok(catalog.length <= 30, `expected at most 30 entries, got ${catalog.length}`)
+  assert.ok(catalog.length <= 40, `expected at most 40 entries, got ${catalog.length}`)
 })
 
 test('seed corpus represents every coordination problem', () => {
