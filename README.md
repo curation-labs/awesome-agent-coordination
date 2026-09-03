@@ -76,9 +76,9 @@ Fixed or minted roles hand candidates to one rule that decides whose output stan
 - [Emergent Alignment via Competition](https://arxiv.org/abs/2509.15090) shows, in a model rather than a system, that a user choosing among rival agents can reach near-aligned outcomes.
 - The expert arrangement in [The Illusion of Multi-Agent Advantage](https://arxiv.org/abs/2606.13003) puts the asymmetry between code and model, with plain Python holding control and arithmetic.
 
-### 4. One budget, two arms, one scoreboard
+### 4. The matched-budget comparison
 
-![One budget, two arms, one scoreboard](assets/figures/family-4-comparison-frame.png)
+![The matched-budget comparison](assets/figures/family-4-comparison-frame.png)
 
 One budget held outside every agent goes whole to a single agent and split across roles, with and without a validation step, and both arms land on the same record. The papers do not agree on what the budget is, a thinking-token cap, dollar cost, maximum iterations, or a fixed workload.
 
