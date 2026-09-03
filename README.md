@@ -25,6 +25,7 @@ and workspaces that implement those ideas.
 
 ## Contents
 
+- [Structures the recent literature shares](#structures-the-recent-literature-shares)
 - [Foundations and formal models](#foundations-and-formal-models)
 - [Architectures and control topology](#architectures-and-control-topology)
 - [Task decomposition, allocation, and delegation](#task-decomposition-allocation-and-delegation)
@@ -34,6 +35,61 @@ and workspaces that implement those ideas.
 - [Incentives, safety, and governance](#incentives-safety-and-governance)
 - [Evaluation, scaling, and economics](#evaluation-scaling-and-economics)
 - [Contributing](#contributing)
+
+## Structures the recent literature shares
+
+The papers here from the second half of 2025 onward make one move in common. Coordination stops being something agents negotiate inside a conversation and becomes something held outside every model context, by a runtime, by a store, by a rule about whose output stands, or by the measurement around the run. One anatomy holds every part those papers use, and each of the four shapes below lights the parts it redesigns.
+
+![Anatomy of a multi-agent run](assets/figures/anatomy.png)
+
+*A human sits above one run. Inside the run, one turn goes from the decider to one of several role agents, through tools, to the channel, and the posted message starts the next turn. A check gates what leaves the loop. The runtime-state band holds what lives outside every context during the run, the durable store below the run survives it, and the store seeds the next run.*
+
+### 1. A runtime layer below the agents
+
+![Runtime layer below the agents](assets/figures/family-1-runtime-below-the-agent.png)
+
+Agents write status, values, and records into a runtime that holds them outside every context, and a script or harness reads that state to wait on an agent or to meter what it may spend.
+
+- [herdr](https://github.com/herdrdev/herdr) keeps each coding agent in a persistent pane and lets a script block until an agent reports a status.
+- [Prime Agent](https://arxiv.org/abs/2608.23552) keeps REPL values outside the context and carries prompts, memories, and skills to the next run through a versioned harness on disk.
+- [VeRO](https://arxiv.org/abs/2602.22480) wraps the agent under improvement so every edit auto-commits and every evaluation decrements a fixed budget.
+
+### 2. Replaceable agents around one durable store
+
+![Replaceable agents around one durable store](assets/figures/family-2-durable-store.png)
+
+Disposable agents produce raw runs, a promote rule decides what enters the store, and the store is the only thing that outlives them and seeds the next run.
+
+- [Knowledge-Centric Self-Improvement](https://arxiv.org/abs/2607.19592) spawns a fresh agent per task and lets a distiller choose which claims seed the next generation.
+- [Filesystem-Based Memory for LLM Agents](https://arxiv.org/abs/2607.26637) makes one markdown tree the sole shared state, written by a management agent and read by a search agent.
+- [Trajectory](https://github.com/letta-ai/trajectory) normalizes any harness's transcript into one record that a later agent can read.
+- [Always-On Agents](https://arxiv.org/abs/2606.30306) surveys 435 works and finds the field better at accumulating state than at governing it.
+
+### 3. A role set under one asymmetry rule
+
+![A role set under one asymmetry rule](assets/figures/family-3-roles.png)
+
+Fixed or minted roles hand candidates to one rule that decides whose output stands, a veto, a price, or a rival offer, while raw data and control flow stay outside every role.
+
+- [Team of Rivals](https://arxiv.org/abs/2601.14351) gives critics an outright veto and keeps raw data in a remote executor that returns summaries.
+- [Economy of Minds](https://arxiv.org/abs/2606.02859) has no fixed roles at all, agents bid for the right to act and wealth decides who is copied or replaced.
+- [Emergent Alignment via Competition](https://arxiv.org/abs/2509.15090) shows, in a model rather than a system, that a user choosing among rival agents can reach near-aligned outcomes.
+- The expert arrangement in [The Illusion of Multi-Agent Advantage](https://arxiv.org/abs/2606.13003) puts the asymmetry between code and model, with plain Python holding control and arithmetic.
+
+### 4. One budget, two arms, one scoreboard
+
+![One budget, two arms, one scoreboard](assets/figures/family-4-comparison-frame.png)
+
+One budget held outside every agent goes whole to a single agent and split across roles, with and without a validation step, and both arms land on the same record. The papers do not agree on what the budget is, a thinking-token cap, dollar cost, maximum iterations, or a fixed workload.
+
+- [Tran and Kiela](https://arxiv.org/abs/2604.02460) match thinking tokens and find the single agent best or tied at every budget but the smallest.
+- [CooperBench](https://arxiv.org/abs/2601.13295) matches the workload and finds two isolated peers retain roughly half of solo capability.
+- [The Illusion of Multi-Agent Advantage](https://arxiv.org/abs/2606.13003) matches cost and finds six automated frameworks below chain-of-thought self-consistency.
+- [Towards a Science of Scaling Agent Systems](https://arxiv.org/abs/2512.08296) matches compute across five topologies and measures errors amplifying 17.2 times without central verification against 4.4 times with it.
+
+### Prior work
+
+Entries from the first half of 2025 and earlier are best read by who decides the topology. Magentic-One, MetaGPT, and AutoGen put a runtime supervisor in the loop that picks the next speaker every turn. CAMEL, Mixture-of-Agents, and Multiagent Debate fix the arrangement by hand before anything runs. GPTSwarm hands the choice to an optimizer before deployment. Multi-Agent Collaboration via Evolving Orchestration (arXiv 2505.19591) trains the decider itself with reinforcement learning. Read against the shapes above, what changed is not that the decider got smarter but that the decision moved out of the conversation.
 
 The catalog below is generated from `data/catalog.json`. Do not edit between the
 markers; run `npm run generate` after changing catalog records.
