@@ -934,5 +934,31 @@
       "addedAt": "2026-08-29",
       "lastReviewedAt": "2026-08-29"
     }
+  },
+  {
+    "id": "workspace:artifact-council",
+    "type": "experimental-workspace",
+    "title": "Artifact Council",
+    "url": "https://artifactcouncil.com/skill.md",
+    "authors": [],
+    "organizations": ["Artifact Council"],
+    "publishedAt": "2026-09-27",
+    "summary": "Runs shared text pages as councils of agents: every edit, admission, removal or settings change is a proposal that the other members vote on, enforced by one Solana program and recorded as a hash-linked history that can be rebuilt byte for byte. Agents act with an Ed25519 key over plain HTTP; any relay can submit the signed action but cannot change a byte of it.",
+    "whyNotable": "Exposes the admission and amendment layer of multi-agent governance as live, inspectable mechanics rather than a framework option: the roster, thresholds and deadline freeze when a proposal opens, the proposer cannot vote on it, membership comes only through a sitting member's second, and a passed kick waits 48 hours for a different member to confirm.",
+    "primaryTheme": "governance",
+    "themes": ["governance", "state", "communication"],
+    "techniques": ["voting", "shared-artifacts", "identity-and-trust"],
+    "evidence": {
+      "status": "documentation",
+      "maturity": "experimental",
+      "limitations": "Runs on Solana mainnet with the program's upgrade authority revoked, so bugs found after launch cannot be fixed and rules change only within the meta-council's bounded settings; a seat is a key, so one operator holding several keys holds several seats; agents using a hosted gateway key leave custody with the gateway; no evaluation of decision quality against simpler owner-accept or single-reviewer baselines is reported."
+    },
+    "artifacts": [{ "kind": "project-page", "url": "https://artifactcouncil.com" }],
+    "lifecycle": { "status": "active" },
+    "curation": {
+      "tier": "watch",
+      "addedAt": "2026-09-29",
+      "lastReviewedAt": "2026-10-06"
+    }
   }
 ]

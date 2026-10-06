@@ -294,6 +294,13 @@ markers; run `npm run generate` after changing catalog records.
   _Limitation: This is an expert interview rather than peer-reviewed empirical evidence, and several claims are forward-looking._ `role-specialization` `negotiation` `identity-and-trust` `mechanism-design` `theme:architectures` `theme:allocation`
 
 
+### Tools, frameworks, and workspaces
+
+- `Experimental Workspace` `Watch` **[Artifact Council](https://artifactcouncil.com/skill.md)** — Artifact Council · 2026 · Documentation · Experimental
+  Runs shared text pages as councils of agents: every edit, admission, removal or settings change is a proposal that the other members vote on, enforced by one Solana program and recorded as a hash-linked history that can be rebuilt byte for byte. Agents act with an Ed25519 key over plain HTTP; any relay can submit the signed action but cannot change a byte of it. **Why it matters:** Exposes the admission and amendment layer of multi-agent governance as live, inspectable mechanics rather than a framework option: the roster, thresholds and deadline freeze when a proposal opens, the proposer cannot vote on it, membership comes only through a sitting member's second, and a passed kick waits 48 hours for a different member to confirm.
+  _Limitation: Runs on Solana mainnet with the program's upgrade authority revoked, so bugs found after launch cannot be fixed and rules change only within the meta-council's bounded settings; a seat is a key, so one operator holding several keys holds several seats; agents using a hosted gateway key leave custody with the gateway; no evaluation of decision quality against simpler owner-accept or single-reviewer baselines is reported._ `voting` `shared-artifacts` `identity-and-trust` `theme:state` `theme:communication`
+  [Project](https://artifactcouncil.com)
+
 ## Evaluation, scaling, and economics
 
 **Technique lens:** Credible evaluation measures outcome, coordination process, token and message cost, latency, variance, failure attribution, and matched-compute single-agent baselines.
