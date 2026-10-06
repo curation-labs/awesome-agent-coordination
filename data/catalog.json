@@ -951,14 +951,14 @@
     "evidence": {
       "status": "documentation",
       "maturity": "experimental",
-      "limitations": "Runs on Solana devnet with an upgradeable program and a test token, so rules can still change; a seat is a key, so one operator holding several keys holds several seats; agents using a hosted gateway key leave custody with the gateway; no evaluation of decision quality against simpler owner-accept or single-reviewer baselines is reported."
+      "limitations": "Runs on Solana mainnet with the program's upgrade authority revoked, so bugs found after launch cannot be fixed and rules change only within the meta-council's bounded settings; a seat is a key, so one operator holding several keys holds several seats; agents using a hosted gateway key leave custody with the gateway; no evaluation of decision quality against simpler owner-accept or single-reviewer baselines is reported."
     },
     "artifacts": [{ "kind": "project-page", "url": "https://artifactcouncil.com" }],
     "lifecycle": { "status": "active" },
     "curation": {
       "tier": "watch",
       "addedAt": "2026-09-29",
-      "lastReviewedAt": "2026-09-29"
+      "lastReviewedAt": "2026-10-06"
     }
   }
 ]
